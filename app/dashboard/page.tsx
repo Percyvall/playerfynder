@@ -21,16 +21,16 @@ export default function DashboardPage() {
   const [recentMedia, setRecentMedia] = useState<any[]>([])
   const [profileViews, setProfileViews] = useState(0)
   const [shortlistCount, setShortlistCount] = useState(0)
- const [stats, setStats] = useState({
-  totalPlayers: 0,
-  totalAgents: 0,
-  pendingPlayers: 0,
-  approvedPlayers: 0,
-  pendingEngagements: 0,
-  approvedEngagements: 0,
-  totalMedia: 0,
-  totalEngagements: 0  // ← ADD THIS LINE
-})
+  const [stats, setStats] = useState({
+    totalPlayers: 0,
+    totalAgents: 0,
+    pendingPlayers: 0,
+    approvedPlayers: 0,
+    pendingEngagements: 0,
+    approvedEngagements: 0,
+    totalMedia: 0,
+    totalEngagements: 0
+  })
   const router = useRouter()
   const supabase = createClient()
 
