@@ -28,8 +28,7 @@ export default function DashboardPage() {
     approvedPlayers: 0,
     pendingEngagements: 0,
     approvedEngagements: 0,
-    totalMedia: 0,
-    totalEngagements: 0
+    totalMedia: 0
   })
   const router = useRouter()
   const supabase = createClient()
@@ -131,8 +130,7 @@ export default function DashboardPage() {
       approvedPlayers: approvedPlayers || 0,
       pendingEngagements: engagements?.filter(e => e.status === 'pending').length || 0,
       approvedEngagements: engagements?.filter(e => e.status === 'approved').length || 0,
-      totalMedia: totalMedia || 0,
-      totalEngagements: engagements?.length || 0
+      totalMedia: totalMedia || 0
     })
   }
 
@@ -226,6 +224,7 @@ export default function DashboardPage() {
 
   // ========== ADMIN DASHBOARD ==========
   if (userRole === 'admin') {
+    const totalEngagements = stats.pendingEngagements + stats.approvedEngagements
     const approvalRate = stats.totalPlayers > 0 
       ? Math.round((stats.approvedPlayers / stats.totalPlayers) * 100) 
       : 0
@@ -263,7 +262,7 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm">Engagements</p>
-                <p className="text-2xl font-bold text-green-600">{stats.totalEngagements}</p>
+                <p className="text-2xl font-bold text-green-600">{totalEngagements}</p>
                 <p className="text-xs text-gray-400 mt-1">{stats.pendingEngagements} pending</p>
               </div>
               <Activity className="w-8 h-8 text-green-200" />
