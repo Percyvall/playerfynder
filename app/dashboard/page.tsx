@@ -261,7 +261,7 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm">Engagements</p>
-                <p className="text-2xl font-bold text-green-600">{stats.totalEngagements}</p>
+                <p className="text-2xl font-bold text-green-600">{stats.pendingEngagements + stats.approvedEngagements}</p>
                 <p className="text-xs text-gray-400 mt-1">{stats.pendingEngagements} pending</p>
               </div>
               <Activity className="w-8 h-8 text-green-200" />
